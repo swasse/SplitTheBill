@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Split The Bill</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="str_tv_lbl_total">Total amount:</string>
+    <string name="str_tv_lbl_tip">Amount to tip:</string>
+    <string name="str_tv_lbl_persons">Size of party</string>
+    <string name="str_btn_calculate">Show me the money!</string>
+</resources>
