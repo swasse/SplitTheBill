@@ -1,16 +1,22 @@
-package be.ehb.splitthebill.main;
+package be.ehb.splitthebill.util;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by davidvansteertegem on 05/02/16.
- */
+import be.ehb.splitthebill.R;
+import be.ehb.splitthebill.fragments.AboutFragment;
+import be.ehb.splitthebill.fragments.SplitBillFragment;
+
+
 public class TabPagerAdapter extends FragmentPagerAdapter {
 
-    public TabPagerAdapter(FragmentManager fm) {
-        super(fm);
+    AppCompatActivity activity;
+
+    public TabPagerAdapter(AppCompatActivity activity) {
+        super(activity.getSupportFragmentManager());
+        this.activity = activity;
     }
 
     @Override
@@ -33,11 +39,10 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position)
         {
-            case 0: return "Split it";
+            case 0: return activity.getResources().getString(R.string.txt_tab_split);
 
-            case 1: return "About";
+            case 1: return activity.getResources().getString(R.string.txt_tab_about);
         }
-
         return super.getPageTitle(position);
     }
 }

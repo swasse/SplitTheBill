@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Split The Bill</string>
+    <string name="action_settings">Preferences</string>
+
+    <string name="str_tv_lbl_total">Total:</string>
+    <string name="str_tv_lbl_tip">pour boire:</string>
+    <string name="str_tv_lbl_persons">Nombre de personnes:</string>
+    <string name="str_btn_calculate">Calculle Gerard!</string>
+    <string name="title_activity_settings">Preferences</string>
+
+    <string name="txt_tab_about">Info</string>
+    <string name="txt_tab_split">Partage</string>
+</resources>

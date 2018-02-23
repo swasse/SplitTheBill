@@ -1,4 +1,4 @@
-package be.ehb.splitthebill.main;
+package be.ehb.splitthebill.fragments;
 
 
 import android.os.Bundle;
@@ -17,13 +17,7 @@ public class AboutFragment extends Fragment {
     }
 
     public static AboutFragment newInstance() {
-        AboutFragment fragment = new AboutFragment();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        return new AboutFragment();
     }
 
     @Override

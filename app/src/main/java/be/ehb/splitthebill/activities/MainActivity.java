@@ -1,4 +1,4 @@
-package be.ehb.splitthebill.main;
+package be.ehb.splitthebill.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import be.ehb.splitthebill.R;
-import be.ehb.splitthebill.prefs.SettingsActivity;
+import be.ehb.splitthebill.util.TabPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mSectionsPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new TabPagerAdapter(this);
 
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager =  findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Intent i = new Intent(this, SettingsActivity.class);
-            startActivity(i);
+            Intent mIntent = new Intent(this, SettingsActivity.class);
+            startActivity(mIntent);
         }
 
         return super.onOptionsItemSelected(item);

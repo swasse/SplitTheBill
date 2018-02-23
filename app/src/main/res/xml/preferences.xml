@@ -5,11 +5,11 @@
         android:title="Favourite payment method"
         android:entries="@array/list_pref_payments"
         android:entryValues="@array/list_pref_payments"
-        android:defaultValue="None"/>
-    <EditTextPreference
-        android:key="pref_tip"
-        android:title="Tip"
-        android:summary="The amount you usually give as a tip."
-        android:inputType="numberDecimal"
         android:defaultValue="0"/>
+    <EditTextPreference
+        android:defaultValue="0"
+        android:inputType="number|numberDecimal"
+        android:key="pref_tip"
+        android:summary="The amount you usually give as a tip."
+        android:title="Tip" />
 </PreferenceScreen>
