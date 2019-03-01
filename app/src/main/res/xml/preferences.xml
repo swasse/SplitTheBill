@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
-        android:key="pref_payments"
-        android:title="Favourite payment method"
         android:entries="@array/list_pref_payments"
         android:entryValues="@array/list_pref_payments"
-        android:defaultValue="0"/>
+        android:key="pref_payments"
+        android:title="@string/txt_pref_paymentmethod" />
     <EditTextPreference
         android:defaultValue="0"
         android:inputType="number|numberDecimal"
         android:key="pref_tip"
-        android:summary="The amount you usually give as a tip."
+        android:summary="@string/txt_pref_tip"
         android:title="Tip" />
 </PreferenceScreen>

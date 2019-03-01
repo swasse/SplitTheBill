@@ -25,7 +25,8 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="AppAlertDialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+    <style name="AppAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 

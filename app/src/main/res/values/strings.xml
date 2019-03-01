@@ -10,4 +10,9 @@
 
     <string name="txt_tab_about">About</string>
     <string name="txt_tab_split">Split it</string>
+    <string name="warning_no_amount">Eating for free or wadde?</string>
+    <string name="warning_no_partysize">Like no one has to pay eh sjarel</string>
+    <string name="txt_pref_tip">The amount you usually give as a tip.</string>
+    <string name="txt_pref_paymentmethod">Favourite payment method</string>
+    <string name="the_man">the man</string>
 </resources>

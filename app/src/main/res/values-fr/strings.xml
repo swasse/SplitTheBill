@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Split The Bill</string>
-    <string name="action_settings">Preferences</string>
+    <string name="action_settings">Préférences</string>
 
     <string name="str_tv_lbl_total">Total:</string>
     <string name="str_tv_lbl_tip">pour boire:</string>
@@ -11,4 +11,9 @@
 
     <string name="txt_tab_about">Info</string>
     <string name="txt_tab_split">Partage</string>
+    <string name="warning_no_amount">Aah, c\'était gratuit?</string>
+    <string name="warning_no_partysize">Qui doit payer?</string>
+    <string name="txt_pref_tip">Combien vous donner comme pour boire en generalle</string>
+    <string name="txt_pref_paymentmethod">Methode de payement favori</string>
+    <string name="the_man">par personne</string>
 </resources>

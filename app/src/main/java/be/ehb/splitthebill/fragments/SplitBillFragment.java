@@ -4,6 +4,7 @@ package be.ehb.splitthebill.fragments;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,6 @@ public class SplitBillFragment extends Fragment {
     //UI
     private EditText etSubtotal, etTip, etPartySize;
     private TextView tvTotal;
-    private Button btnCalculate;
     //Listener
     View.OnClickListener calcListener = new View.OnClickListener() {
         @Override
@@ -38,32 +38,26 @@ public class SplitBillFragment extends Fragment {
                 partySize = Double.valueOf(etPartySize.getText().toString());
 
             if(subtotal == 0){
-                tvTotal.setText("Eating for free or wadde?");
+                tvTotal.setText(R.string.warning_no_amount);
                 return;
             }
-
             if(partySize == 0){
-                tvTotal.setText("Like no one has to pay eh sjarel");
+                tvTotal.setText(R.string.warning_no_partysize);
                 return;
             }
-
             double total = (subtotal + tip) / partySize;
-            tvTotal.setText(String.format("%.2f the man", total));
+            tvTotal.setText(String.format(Locale.getDefault() ,"%.2f %s", total, getResources().getString(R.string.the_man)));
             //trukken van de foor
             //tvTotal.setText(""+total);
         }
     };
-
-    public SplitBillFragment() {
-        // Required empty public constructor
-    }
 
     public static SplitBillFragment newInstance() {
         return new SplitBillFragment();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_split_bill, container, false);
@@ -71,10 +65,8 @@ public class SplitBillFragment extends Fragment {
         etSubtotal = rootView.findViewById(R.id.et_subtotal);
         etTip =  rootView.findViewById(R.id.et_tip);
         etPartySize =  rootView.findViewById(R.id.et_party_size);
-
         tvTotal =  rootView.findViewById(R.id.tv_total);
-
-        btnCalculate = rootView.findViewById(R.id.btn_calc_total);
+        Button btnCalculate = rootView.findViewById(R.id.btn_calc_total);
         btnCalculate.setOnClickListener(calcListener);
 
         return rootView;
