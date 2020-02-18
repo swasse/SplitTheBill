@@ -1,47 +1,44 @@
 package be.ehb.splitthebill.util;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import be.ehb.splitthebill.R;
 import be.ehb.splitthebill.fragments.AboutFragment;
+import be.ehb.splitthebill.fragments.SettingsFragment;
 import be.ehb.splitthebill.fragments.SplitBillFragment;
 
 
 public class TabPagerAdapter extends FragmentPagerAdapter {
 
-    AppCompatActivity activity;
+    private Fragment[] screens = {SplitBillFragment.newInstance(),
+            SettingsFragment.newInstance(),
+            AboutFragment.newInstance()
+    };
 
-    public TabPagerAdapter(AppCompatActivity activity) {
-        super(activity.getSupportFragmentManager());
-        this.activity = activity;
+    public TabPagerAdapter(FragmentManager fm) {
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
-            case 0: return SplitBillFragment.newInstance();
-
-            case 1: return AboutFragment.newInstance();
-        }
-        return null;
+        return screens[position];
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return screens.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position)
-        {
-            case 0: return activity.getResources().getString(R.string.txt_tab_split);
-
-            case 1: return activity.getResources().getString(R.string.txt_tab_about);
+        if (screens[position].getArguments() != null) {
+            return (CharSequence) screens[position].getArguments().get("title");
         }
         return super.getPageTitle(position);
     }

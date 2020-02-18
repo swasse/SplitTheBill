@@ -4,14 +4,15 @@ package be.ehb.splitthebill.fragments;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import java.util.Locale;
 
@@ -24,27 +25,33 @@ public class SplitBillFragment extends Fragment {
     private EditText etSubtotal, etTip, etPartySize;
     private TextView tvTotal;
     //Listener
-    View.OnClickListener calcListener = new View.OnClickListener() {
+    private View.OnClickListener calcListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
             double subtotal = 0, tip = 0, partySize = 0;
 
-            if (etSubtotal.getText().length() != 0)
+            if (etSubtotal.getText().toString().matches("[0-9].?[0-9]{0,2}"))
                 subtotal = Double.valueOf(etSubtotal.getText().toString());
-            if (etTip.getText().length() != 0)
-                tip = Double.valueOf(etTip.getText().toString());
-            if (etPartySize.getText().length() != 0)
+            else {
+                tvTotal.setText(R.string.warning_invalid_number);
+                return;
+            }
+            if (etTip.getText().toString().matches("[0-9]?.?[0-9]{0,2}")){
+                if (!etTip.getText().toString().isEmpty()) {
+                    tip = Double.valueOf(etTip.getText().toString());
+                }
+            } else {
+                tvTotal.setText(R.string.warning_invalid_number);
+                return;
+            }
+            if (etPartySize.getText().toString().matches("[0-9]+.?[0-9]{0,2}"))
                 partySize = Double.valueOf(etPartySize.getText().toString());
+            else {
+                tvTotal.setText(R.string.warning_invalid_number);
+                return;
+            }
 
-            if(subtotal == 0){
-                tvTotal.setText(R.string.warning_no_amount);
-                return;
-            }
-            if(partySize == 0){
-                tvTotal.setText(R.string.warning_no_partysize);
-                return;
-            }
             double total = (subtotal + tip) / partySize;
             tvTotal.setText(String.format(Locale.getDefault() ,"%.2f %s", total, getResources().getString(R.string.the_man)));
             //trukken van de foor
@@ -53,7 +60,11 @@ public class SplitBillFragment extends Fragment {
     };
 
     public static SplitBillFragment newInstance() {
-        return new SplitBillFragment();
+        SplitBillFragment sbf = new SplitBillFragment();
+        Bundle args = new Bundle();
+        args.putCharSequence("title", "Split it!");
+        sbf.setArguments(args);
+        return sbf;
     }
 
     @Override

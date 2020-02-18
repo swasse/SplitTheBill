@@ -1,18 +1,19 @@
 package be.ehb.splitthebill.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+
 import be.ehb.splitthebill.R;
 import be.ehb.splitthebill.util.TabPagerAdapter;
+import be.ehb.splitthebill.util.TransitionTransform;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabPagerAdapter mSectionsPagerAdapter = new TabPagerAdapter(this);
+        TabPagerAdapter mSectionsPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
 
         ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setPageTransformer(false, new TransitionTransform());
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);

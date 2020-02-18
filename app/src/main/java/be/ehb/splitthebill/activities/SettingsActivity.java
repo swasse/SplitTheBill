@@ -1,7 +1,8 @@
 package be.ehb.splitthebill.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import be.ehb.splitthebill.R;
 import be.ehb.splitthebill.fragments.SettingsFragment;

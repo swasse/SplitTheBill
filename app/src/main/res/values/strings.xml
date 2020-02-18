@@ -15,4 +15,5 @@
     <string name="txt_pref_tip">The amount you usually give as a tip.</string>
     <string name="txt_pref_paymentmethod">Favourite payment method</string>
     <string name="the_man">the man</string>
+    <string name="warning_invalid_number">Numbers only, 2 digits after point</string>
 </resources>

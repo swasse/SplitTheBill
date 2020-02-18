@@ -7,7 +7,6 @@
         android:title="@string/txt_pref_paymentmethod" />
     <EditTextPreference
         android:defaultValue="0"
-        android:inputType="number|numberDecimal"
         android:key="pref_tip"
         android:summary="@string/txt_pref_tip"
         android:title="Tip" />

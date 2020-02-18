@@ -16,4 +16,5 @@
     <string name="txt_pref_tip">Combien vous donner comme pour boire en generalle</string>
     <string name="txt_pref_paymentmethod">Methode de payement favori</string>
     <string name="the_man">par personne</string>
+    <string name="warning_invalid_number">Montant exact, 2 chifres apres le point</string>
 </resources>
